@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Profile | SecureApp{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <h1>Profile</h1>
+    <p class="subtitle">Your account overview</p>
+</section>
+
+<div class="card-grid">
+    <article class="card">
+        <h2>Account Details</h2>
+        <dl class="detail-list">
+            <dt>Username</dt>
+            <dd>{{ user.username }}</dd>
+            <dt>Email</dt>
+            <dd>{{ user.email }}</dd>
+            <dt>Role</dt>
+            <dd>{{ "Administrator" if user.is_admin else "User" }}</dd>
+            <dt>Member Since</dt>
+            <dd>{{ user.created_at[:10] }}</dd>
+        </dl>
+    </article>
+
+    <article class="card">
+        <h2>Recent Uploads</h2>
+        {% if uploads %}
+            <ul class="item-list">
+                {% for upload in uploads %}
+                    <li>
+                        <span>{{ upload.filename }}</span>
+                        <time>{{ upload.uploaded_at[:10] }}</time>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="empty-state">No uploads yet.</p>
+        {% endif %}
+        <a href="{{ url_for('upload') }}" class="btn btn-secondary">Upload a file</a>
+    </article>
+</div>
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}Admin | SecureApp{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <h1>Admin Dashboard</h1>
+    <p class="subtitle">User management and upload statistics</p>
+</section>
+
+<div class="card-grid">
+    <article class="card card-wide">
+        <h2>Registered Users</h2>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Created</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                    <tr>
+                        <td>{{ user.id }}</td>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ "Admin" if user.is_admin else "User" }}</td>
+                        <td>{{ user.created_at[:10] }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </article>
+
+    <article class="card">
+        <h2>Upload Activity</h2>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>User</th>
+                    <th>Uploads</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for stat in upload_stats %}
+                    <tr>
+                        <td>{{ stat.username }}</td>
+                        <td>{{ stat.upload_count }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </article>
+</div>
+{% endblock %}
