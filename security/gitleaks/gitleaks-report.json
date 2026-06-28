@@ -1,0 +1,23 @@
+[
+ {
+  "RuleID": "generic-api-key",
+  "Description": "Detected a Generic API Key, potentially exposing access to various services and sensitive operations.",
+  "StartLine": 39,
+  "EndLine": 39,
+  "StartColumn": 10,
+  "EndColumn": 41,
+  "Match": "RegEnumKey = win32api.RegEnumKey",
+  "Secret": "win32api.RegEnumKey",
+  "File": ".venv/Lib/site-packages/setuptools/_distutils/msvccompiler.py",
+  "SymlinkFile": "",
+  "Commit": "2de9d6e7a7438f71e7c4fc23d161bfede7fe2c66",
+  "Link": "https://github.com/30032003/SecureApp-Pipeline/blob/2de9d6e7a7438f71e7c4fc23d161bfede7fe2c66/.venv/Lib/site-packages/setuptools/_distutils/msvccompiler.py#L39",
+  "Entropy": 3.932138,
+  "Author": "30032003",
+  "Email": "dahiwaleharshal9@gmail.com",
+  "Date": "2026-06-28T10:07:34Z",
+  "Message": "Working Flask Application",
+  "Tags": [],
+  "Fingerprint": "2de9d6e7a7438f71e7c4fc23d161bfede7fe2c66:.venv/Lib/site-packages/setuptools/_distutils/msvccompiler.py:generic-api-key:39"
+ }
+]
