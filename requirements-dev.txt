@@ -1,0 +1,6 @@
+# This file lists the Python packages required for development and testing.
+#Development & Security Tools
+bandit
+semgrep
+pip-audit
+pytest

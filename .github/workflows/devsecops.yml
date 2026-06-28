@@ -1,0 +1,68 @@
+name: SecureApp DevSecOps Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  security-pipeline:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Application Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Install Development Dependencies
+        run: |
+          pip install -r requirements-dev.txt
+
+      - name: Run Bandit
+        run: |
+          mkdir -p security/bandit
+          bandit -r . -f json -o security/bandit/bandit-report.json
+
+      - name: Run Semgrep
+        run: |
+          mkdir -p security/semgrep
+          semgrep scan --json --output security/semgrep/semgrep-report.json .
+
+      - name: Run pip-audit
+        run: |
+          mkdir -p security/pip-audit
+          pip-audit -f json -o security/pip-audit/pip-audit-report.json
+
+      - name: Run Gitleaks
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build Docker Image
+        run: |
+          docker build -t secureapp .
+
+      - name: Run Trivy Scan
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: secureapp
+          format: json
+          output: security/trivy/trivy-report.json
+
+      - name: Upload Security Reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: security-reports
+          path: security/
