@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Weak Session | Vulnerable Lab{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <h1>Weak Session Login</h1>
+    <p class="subtitle">Set session values without authentication</p>
+</section>
+
+<article class="card">
+    <form method="post" class="form">
+        <div class="form-group">
+            <label for="user_id">User ID</label>
+            <input type="number" id="user_id" name="user_id" value="1" min="1">
+        </div>
+        <div class="form-group">
+            <label>
+                <input type="checkbox" name="is_admin"> Grant admin session flag
+            </label>
+        </div>
+        <button type="submit" class="btn btn-primary">Assume Identity</button>
+    </form>
+
+    <p class="hint">
+        Session fixation test:
+        <a href="{{ url_for('vulnerable.weak_session', session_id='attacker-controlled-id') }}">
+            ?session_id=attacker-controlled-id
+        </a>
+    </p>
+
+    <h2>Current Session</h2>
+    <pre>{{ session_data }}</pre>
+</article>
+{% endblock %}

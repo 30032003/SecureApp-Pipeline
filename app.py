@@ -1,5 +1,6 @@
 import os
 import sqlite3
+import importlib.util
 from datetime import datetime
 from functools import wraps
 
@@ -17,12 +18,27 @@ from werkzeug.security import check_password_hash, generate_password_hash
 from werkzeug.utils import secure_filename
 
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
+
+
+def _load_vulnerable_module():
+    module_path = os.path.join(BASE_DIR, "app", "routes", "vulnerable.py")
+    spec = importlib.util.spec_from_file_location("vulnerable_routes", module_path)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+_vulnerable = _load_vulnerable_module()
+vulnerable_bp = _vulnerable.vulnerable_bp
+init_vulnerable_tables = _vulnerable.init_vulnerable_tables
+
 DATABASE = os.path.join(BASE_DIR, "secureapp.db")
 UPLOAD_FOLDER = os.path.join(BASE_DIR, "app", "uploads")
 ALLOWED_EXTENSIONS = {"txt", "pdf", "png", "jpg", "jpeg", "gif", "csv", "json"}
 MAX_CONTENT_LENGTH = 5 * 1024 * 1024  # 5 MB
 
 app = Flask(__name__, static_folder="app/static")
+app.register_blueprint(vulnerable_bp)
 app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY", "dev-only-change-in-production")
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 app.config["MAX_CONTENT_LENGTH"] = MAX_CONTENT_LENGTH
@@ -85,6 +101,7 @@ def init_db():
             ),
         )
     db.commit()
+    init_vulnerable_tables(db)
 
 
 def login_required(view):

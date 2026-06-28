@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}SQL Search | Vulnerable Lab{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <h1>User Search</h1>
+    <p class="subtitle">Vulnerable SQL query demonstration</p>
+</section>
+
+<article class="card">
+    <form method="get" class="form">
+        <div class="form-group">
+            <label for="q">Username</label>
+            <input type="text" id="q" name="q" value="{{ query }}">
+        </div>
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+
+    {% if executed_sql %}
+        <p class="hint">Executed query: <code>{{ executed_sql }}</code></p>
+    {% endif %}
+
+    {% if error %}
+        <div class="alert alert-danger">{{ error }}</div>
+    {% endif %}
+
+    {% if rows %}
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in rows %}
+                    <tr>
+                        <td>{{ row.id }}</td>
+                        <td>{{ row.username }}</td>
+                        <td>{{ row.email }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% elif query and not error %}
+        <p class="empty-state">No users found.</p>
+    {% endif %}
+</article>
+{% endblock %}

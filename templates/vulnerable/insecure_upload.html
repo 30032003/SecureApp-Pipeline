@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Insecure Upload | Vulnerable Lab{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <h1>Insecure File Upload</h1>
+    <p class="subtitle">No file type validation or access controls</p>
+</section>
+
+<div class="card-grid">
+    <article class="card">
+        <h2>Upload Any File</h2>
+        <form method="post" enctype="multipart/form-data" class="form">
+            <div class="form-group">
+                <label for="file">File</label>
+                <input type="file" id="file" name="file" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Upload</button>
+        </form>
+    </article>
+
+    <article class="card">
+        <h2>Uploaded Files</h2>
+        {% if uploaded_files %}
+            <ul class="item-list">
+                {% for filename in uploaded_files %}
+                    <li>
+                        <a href="{{ url_for('vulnerable.insecure_upload_serve', filename=filename) }}">
+                            {{ filename }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="empty-state">No files uploaded yet.</p>
+        {% endif %}
+    </article>
+</div>
+{% endblock %}

@@ -18,10 +18,12 @@
                 {% if g.user.is_admin %}
                     <li><a href="{{ url_for('admin') }}">Admin</a></li>
                 {% endif %}
+                <li><a href="{{ url_for('vulnerable.index') }}">Vuln Lab</a></li>
                 <li><a href="{{ url_for('logout') }}">Logout</a></li>
             {% else %}
                 <li><a href="{{ url_for('login') }}">Login</a></li>
                 <li><a href="{{ url_for('register') }}">Register</a></li>
+                <li><a href="{{ url_for('vulnerable.index') }}">Vuln Lab</a></li>
             {% endif %}
         </ul>
     </nav>

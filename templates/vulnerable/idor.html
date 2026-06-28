@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Secret Viewer | Vulnerable Lab{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <h1>Secret Record #{{ secret_id }}</h1>
+    <p class="subtitle">IDOR demonstration — change the ID in the URL</p>
+</section>
+
+<article class="card">
+    {% if secret %}
+        <dl class="detail-list">
+            <dt>Owner</dt>
+            <dd>{{ secret.username }} (user_id={{ secret.user_id }})</dd>
+            <dt>Title</dt>
+            <dd>{{ secret.title }}</dd>
+            <dt>Secret Note</dt>
+            <dd>{{ secret.secret_note }}</dd>
+        </dl>
+    {% else %}
+        <p class="empty-state">Secret not found.</p>
+    {% endif %}
+
+    <p class="hint">Try: <a href="{{ url_for('vulnerable.idor_secret', secret_id=1) }}">/vulnerable/idor/secret/1</a></p>
+</article>
+{% endblock %}
