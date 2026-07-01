@@ -3,6 +3,8 @@ import sqlite3
 import importlib.util
 from datetime import datetime
 from functools import wraps
+from prometheus_client import Counter, Histogram, generate_latest, CONTENT_TYPE_LATEST
+import time
 
 from flask import (
     Flask,

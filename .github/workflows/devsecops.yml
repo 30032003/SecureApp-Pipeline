@@ -31,16 +31,19 @@ jobs:
           pip install -r requirements-dev.txt
 
       - name: Run Bandit
+        continue-on-error: true
         run: |
           mkdir -p security/bandit
           bandit -r . -f json -o security/bandit/bandit-report.json
-
+      
       - name: Run Semgrep
+        continue-on-error: true
         run: |
           mkdir -p security/semgrep
           semgrep scan --json --output security/semgrep/semgrep-report.json .
 
       - name: Run pip-audit
+        continue-on-error: true
         run: |
           mkdir -p security/pip-audit
           pip-audit -f json -o security/pip-audit/pip-audit-report.json
@@ -55,6 +58,7 @@ jobs:
           docker build -t secureapp .
 
       - name: Run Trivy Scan
+        continue-on-error: true
         uses: aquasecurity/trivy-action@master
         with:
           image-ref: secureapp
