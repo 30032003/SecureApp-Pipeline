@@ -40,7 +40,10 @@ jobs:
         continue-on-error: true
         run: |
           mkdir -p security/semgrep
-          semgrep scan --json --output security/semgrep/semgrep-report.json .
+          semgrep scan . \
+          --config auto \
+          --json \
+          --output security/semgrep/semgrep-report.json
 
       - name: Run pip-audit
         continue-on-error: true
@@ -55,13 +58,13 @@ jobs:
 
       - name: Build Docker Image
         run: |
-          docker build -t secureapp .
+          docker build -t secureapp:${{ github.sha }} .
 
       - name: Run Trivy Scan
         continue-on-error: true
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: secureapp
+          image-ref: secureapp:${{ github.sha }}
           format: json
           output: security/trivy/trivy-report.json
 
@@ -69,4 +72,13 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: security-reports
-          path: security/
+          path: |
+            security/bandit
+            security/semgrep
+            security/pip-audit
+            security/trivy
+
+      - name: Verify Python
+        run: |
+          python --version
+          pip --version

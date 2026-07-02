@@ -1,10 +1,11 @@
 import os
 import sqlite3
 import importlib.util
-from datetime import datetime
-from functools import wraps
+from flask import Response
 from prometheus_client import Counter, Histogram, generate_latest, CONTENT_TYPE_LATEST
 import time
+from datetime import datetime
+from functools import wraps
 
 from flask import (
     Flask,
@@ -40,6 +41,16 @@ ALLOWED_EXTENSIONS = {"txt", "pdf", "png", "jpg", "jpeg", "gif", "csv", "json"}
 MAX_CONTENT_LENGTH = 5 * 1024 * 1024  # 5 MB
 
 app = Flask(__name__, static_folder="app/static")
+REQUEST_COUNT = Counter(
+    "secureapp_requests_total",
+    "Total HTTP Requests",
+    ["method", "endpoint"]
+)
+
+REQUEST_LATENCY = Histogram(
+    "secureapp_request_duration_seconds",
+    "Request duration"
+)
 app.register_blueprint(vulnerable_bp)
 app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY", "dev-only-change-in-production")
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
@@ -143,6 +154,31 @@ def current_user():
         (session["user_id"],),
     ).fetchone()
 
+
+@app.before_request
+def start_timer():
+    request.start_time = time.time()
+    
+@app.after_request
+def after_request(response):
+    REQUEST_COUNT.labels(
+        request.method,
+        request.path
+    ).inc()
+
+    if hasattr(request, "start_time"):
+        REQUEST_LATENCY.observe(
+            time.time() - request.start_time
+        )
+
+    return response
+
+@app.route("/metrics", methods=["GET"])
+def metrics():
+    return Response(
+        generate_latest(),
+        mimetype=CONTENT_TYPE_LATEST
+    )
 
 @app.before_request
 def load_logged_in_user():
