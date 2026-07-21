@@ -158,7 +158,8 @@ def current_user():
 @app.before_request
 def start_timer():
     request.start_time = time.time()
-    
+
+
 @app.after_request
 def after_request(response):
     REQUEST_COUNT.labels(
@@ -173,12 +174,14 @@ def after_request(response):
 
     return response
 
+
 @app.route("/metrics", methods=["GET"])
 def metrics():
     return Response(
         generate_latest(),
         mimetype=CONTENT_TYPE_LATEST
     )
+
 
 @app.before_request
 def load_logged_in_user():

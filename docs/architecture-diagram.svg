@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#334155" />
+    </marker>
+    <style>
+      .title { font: 700 30px 'Segoe UI', Arial, sans-serif; fill: #0f172a; }
+      .section { fill: #f8fafc; stroke: #cbd5e1; stroke-width: 2; rx: 16; ry: 16; }
+      .box { fill: #ffffff; stroke: #94a3b8; stroke-width: 1.5; rx: 12; ry: 12; }
+      .box-blue { fill: #eff6ff; stroke: #60a5fa; }
+      .box-green { fill: #ecfdf5; stroke: #34d399; }
+      .box-yellow { fill: #fffbeb; stroke: #fbbf24; }
+      .box-purple { fill: #f5f3ff; stroke: #a78bfa; }
+      .label { font: 600 18px 'Segoe UI', Arial, sans-serif; fill: #0f172a; }
+      .small { font: 14px 'Segoe UI', Arial, sans-serif; fill: #475569; }
+      .line { stroke: #334155; stroke-width: 2.2; fill: none; marker-end: url(#arrow); }
+      .sub { font: 700 20px 'Segoe UI', Arial, sans-serif; fill: #334155; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="1400" height="900" fill="#f8fafc" />
+  <text x="700" y="60" text-anchor="middle" class="title">SecureApp Pipeline Architecture</text>
+
+  <rect x="70" y="110" width="1260" height="720" class="section" />
+
+  <text x="110" y="150" class="sub">User & Access</text>
+  <rect x="110" y="180" width="220" height="140" class="box box-blue" />
+  <text x="220" y="220" text-anchor="middle" class="label">Browser / User</text>
+  <text x="220" y="248" text-anchor="middle" class="small">HTTP requests</text>
+  <text x="220" y="272" text-anchor="middle" class="small">to Flask app</text>
+
+  <text x="420" y="150" class="sub">Application Layer</text>
+  <rect x="390" y="180" width="300" height="240" class="box box-green" />
+  <text x="540" y="220" text-anchor="middle" class="label">Flask Application</text>
+  <text x="540" y="248" text-anchor="middle" class="small">app.py</text>
+  <text x="540" y="276" text-anchor="middle" class="small">Auth, profile, upload flows</text>
+  <text x="540" y="304" text-anchor="middle" class="small">Vulnerable demo endpoints</text>
+  <text x="540" y="332" text-anchor="middle" class="small">/metrics endpoint</text>
+
+  <rect x="720" y="180" width="220" height="240" class="box box-yellow" />
+  <text x="830" y="220" text-anchor="middle" class="label">Routes & Templates</text>
+  <text x="830" y="248" text-anchor="middle" class="small">Blueprint routes</text>
+  <text x="830" y="276" text-anchor="middle" class="small">HTML templates</text>
+  <text x="830" y="304" text-anchor="middle" class="small">Vulnerability demos</text>
+
+  <text x="1020" y="150" class="sub">Data & Storage</text>
+  <rect x="980" y="180" width="300" height="240" class="box box-purple" />
+  <text x="1130" y="220" text-anchor="middle" class="label">SQLite Database</text>
+  <text x="1130" y="248" text-anchor="middle" class="small">secureapp.db</text>
+  <text x="1130" y="276" text-anchor="middle" class="small">Users, uploads, secrets</text>
+  <text x="1130" y="304" text-anchor="middle" class="small">Vulnerable demo data</text>
+
+  <rect x="600" y="470" width="280" height="180" class="box box-yellow" />
+  <text x="740" y="510" text-anchor="middle" class="label">Upload Storage</text>
+  <text x="740" y="538" text-anchor="middle" class="small">app/uploads/</text>
+  <text x="740" y="566" text-anchor="middle" class="small">User uploads</text>
+  <text x="740" y="594" text-anchor="middle" class="small">Vulnerable uploads</text>
+
+  <rect x="920" y="470" width="320" height="180" class="box box-green" />
+  <text x="1080" y="510" text-anchor="middle" class="label">Monitoring Stack</text>
+  <text x="1080" y="538" text-anchor="middle" class="small">Prometheus scrapes /metrics</text>
+  <text x="1080" y="566" text-anchor="middle" class="small">Grafana visualizes metrics</text>
+
+  <rect x="140" y="470" width="320" height="180" class="box box-blue" />
+  <text x="300" y="510" text-anchor="middle" class="label">Security & Delivery</text>
+  <text x="300" y="538" text-anchor="middle" class="small">Docker / Dockerfile</text>
+  <text x="300" y="566" text-anchor="middle" class="small">Terraform scaffolding</text>
+  <text x="300" y="594" text-anchor="middle" class="small">Bandit, Semgrep, Trivy, Gitleaks, ZAP</text>
+
+  <path d="M330 320 L390 320" class="line" />
+  <path d="M690 320 L720 320" class="line" />
+  <path d="M940 320 L980 320" class="line" />
+  <path d="M540 420 L540 470" class="line" />
+  <path d="M740 650 L740 740" class="line" />
+  <path d="M740 470 L740 420" class="line" />
+  <path d="M740 420 L1080 470" class="line" />
+  <path d="M300 650 L300 740" class="line" />
+
+  <text x="700" y="780" text-anchor="middle" class="small">Generated architecture view for the SecureApp Pipeline repository</text>
+</svg>
