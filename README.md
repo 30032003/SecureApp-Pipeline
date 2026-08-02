@@ -345,3 +345,123 @@ SecureApp Flask
 | Prometheus | Collects application metrics |
 | Grafana | Visualizes metrics using dashboards |
 | Flask Metrics | Exposes application metrics for monitoring |
+
+
+## 🔄 End-to-End Project Workflow
+
+The following workflow demonstrates how SecureApp follows DevSecOps principles from code development to deployment and monitoring.
+
+```text
+Developer
+      │
+      ▼
+Develops SecureApp Features
+      │
+      ▼
+Pushes Code to GitHub Repository
+      │
+      ▼
+GitHub Actions CI/CD Pipeline Starts
+      │
+      ├── Checkout Repository
+      ├── Setup Python Environment
+      ├── Install Dependencies
+      ├── Run Bandit (SAST)
+      ├── Run Semgrep (SAST)
+      ├── Run Gitleaks (Secret Scanning)
+      ├── Run pip-audit (Dependency Scanning)
+      ├── Build Docker Image
+      ├── Run Trivy (Container Scanning)
+      └── Upload Security Reports
+              │
+              ▼
+Terraform Infrastructure
+              │
+              ▼
+AWS EC2 Instance
+              │
+              ▼
+SSH Deployment
+              │
+              ▼
+Docker Container
+              │
+              ▼
+SecureApp Running
+              │
+              ▼
+OWASP ZAP Scan (DAST)
+              │
+              ▼
+Prometheus Monitoring
+              │
+              ▼
+Grafana Dashboard
+```
+
+---
+
+### Workflow Explanation
+
+### 1. Source Code Management
+
+The developer implements new features or security improvements and pushes the latest code to the GitHub repository.
+
+---
+
+### 2. Continuous Integration (CI)
+
+GitHub Actions automatically starts the CI pipeline.
+
+During this stage:
+
+- Source code is checked out.
+- Python dependencies are installed.
+- Security tools are executed.
+- Docker image is built.
+- Security reports are generated.
+
+---
+
+### 3. Infrastructure Provisioning
+
+Terraform provisions the AWS infrastructure required to host the application.
+
+Resources include:
+
+- AWS EC2 Instance
+- Security Group
+- User Data Script
+
+---
+
+### 4. Continuous Deployment (CD)
+
+After successful validation, GitHub Actions connects to the EC2 instance through SSH.
+
+Deployment process:
+
+- Pull latest source code
+- Build Docker image
+- Stop existing container
+- Deploy updated container
+
+---
+
+### 5. Dynamic Security Testing
+
+OWASP ZAP performs Dynamic Application Security Testing (DAST) against the deployed application to identify runtime web security vulnerabilities.
+
+---
+
+### 6. Monitoring
+
+Prometheus continuously collects metrics from the application.
+
+Grafana visualizes:
+
+- Application Health
+- Metrics
+- Monitoring Dashboards
+
+This enables continuous monitoring of the deployed application.
