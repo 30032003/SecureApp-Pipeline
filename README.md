@@ -108,3 +108,104 @@ The following diagram illustrates the complete SecureApp DevSecOps workflow from
 7. OWASP ZAP performs Dynamic Application Security Testing (DAST).
 8. Prometheus collects application metrics.
 9. Grafana visualizes monitoring dashboards.
+
+
+## 🚀 Installation & Setup
+
+### 1️⃣ Clone the Repository
+
+```bash
+git clone https://github.com/30032003/SecureApp-Pipeline.git
+cd SecureApp-Pipeline
+```
+
+---
+
+### 2️⃣ Create Virtual Environment
+
+#### Windows
+
+```bash
+python -m venv .venv
+.venv\Scripts\activate
+```
+
+#### Linux/macOS
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+---
+
+### 3️⃣ Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+### 4️⃣ Run the Application
+
+```bash
+python app.py
+```
+
+Application will be available at:
+
+```
+http://localhost:5000
+```
+
+---
+
+### 5️⃣ Run using Docker
+
+Build Docker Image
+
+```bash
+docker build -t secureapp .
+```
+
+Run Container
+
+```bash
+docker run -d -p 5000:5000 --name secureapp secureapp
+```
+
+---
+
+### 6️⃣ Run using Docker Compose
+
+```bash
+docker-compose up --build
+```
+
+---
+
+### 7️⃣ Access the Application
+
+```
+http://localhost:5000
+```
+
+
+## ⚙️ Infrastructure Deployment
+
+Terraform is used to provision AWS EC2 infrastructure.
+
+```bash
+cd terraform
+
+terraform init
+
+terraform plan
+
+terraform apply
+```
+
+After successful deployment, Terraform outputs the EC2 Public IP and Public DNS.
+
+GitHub Actions automatically connects to the EC2 instance via SSH and deploys the latest application.
