@@ -23,3 +23,19 @@ The pipeline uses GitHub Actions to automate security scans, Docker to package t
 
 This project demonstrates how security can be incorporated into every stage of application development, making it suitable for learning modern DevSecOps practices.
 
+## 🚀 Features
+
+- 🔐 User Registration and Login Authentication
+- 📤 Secure File Upload Functionality
+- 🐳 Dockerized Flask Application
+- ⚙️ Automated CI/CD Pipeline using GitHub Actions
+- ☁️ Infrastructure Provisioning using Terraform
+- 🖥️ Automated Deployment on AWS EC2
+- 🔍 Static Application Security Testing (Bandit, Semgrep)
+- 🔑 Secret Detection using Gitleaks
+- 📦 Dependency Vulnerability Scanning using pip-audit
+- 🛡️ Container Image Scanning using Trivy
+- 🌐 Dynamic Application Security Testing (OWASP ZAP)
+- 📊 Monitoring with Prometheus
+- 📈 Visualization using Grafana
+- 🚨 Demonstration of OWASP Top 10 Vulnerabilities
