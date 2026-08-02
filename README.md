@@ -268,3 +268,80 @@ The pipeline automatically generates reports for:
 - ✅ OWASP ZAP Report
 
 These reports help identify security issues before and after deployment, enabling continuous security validation throughout the Software Development Life Cycle (SDLC).
+
+
+## ☁️ Deployment & Monitoring
+
+### AWS Deployment
+
+The application is deployed on an AWS EC2 instance provisioned using Terraform. GitHub Actions automatically deploys the latest version of the application after successful security validation.
+
+Deployment Workflow:
+
+```text
+Developer
+      │
+      ▼
+GitHub Repository
+      │
+      ▼
+GitHub Actions
+      │
+      ▼
+Security Scans
+      │
+      ▼
+Docker Build
+      │
+      ▼
+Terraform Provisioned AWS EC2
+      │
+      ▼
+Automatic Deployment via SSH
+      │
+      ▼
+SecureApp Running on Docker
+```
+
+---
+
+### Infrastructure
+
+| Component | Technology |
+|-----------|------------|
+| Cloud Provider | AWS |
+| Compute Service | EC2 |
+| Infrastructure as Code | Terraform |
+| Deployment Method | GitHub Actions + SSH |
+| Container Runtime | Docker |
+
+---
+
+### Monitoring Stack
+
+The application exposes Prometheus metrics, which are collected and visualized through Grafana dashboards.
+
+Monitoring Flow:
+
+```text
+SecureApp Flask
+        │
+        ▼
+ /metrics Endpoint
+        │
+        ▼
+ Prometheus
+        │
+        ▼
+ Grafana Dashboard
+```
+
+---
+
+### Monitoring Components
+
+| Component | Purpose |
+|-----------|---------|
+| Prometheus | Collects application metrics |
+| Grafana | Visualizes metrics using dashboards |
+| Flask Metrics | Exposes application metrics for monitoring |
