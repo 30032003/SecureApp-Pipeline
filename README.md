@@ -82,3 +82,29 @@ SecureApp-Pipeline/
 ├── requirements.txt
 └── README.md
 ```
+
+## 🏗️ Architecture Diagram
+
+The following diagram illustrates the complete SecureApp DevSecOps workflow from code commit to automated deployment and security validation.
+
+<p align="center">
+  <img src="docs/architecture-diagram.svg" width="1000">
+</p>
+
+
+### Pipeline Flow
+
+1. Developer pushes source code to GitHub.
+2. GitHub Actions automatically starts the CI/CD pipeline.
+3. Security scans are executed using:
+   - Bandit
+   - Semgrep
+   - Gitleaks
+   - pip-audit
+   - Trivy
+4. Docker image is built.
+5. Terraform provisions AWS EC2 infrastructure.
+6. SecureApp is automatically deployed on EC2 using SSH.
+7. OWASP ZAP performs Dynamic Application Security Testing (DAST).
+8. Prometheus collects application metrics.
+9. Grafana visualizes monitoring dashboards.
