@@ -39,3 +39,46 @@ This project demonstrates how security can be incorporated into every stage of a
 - 📊 Monitoring with Prometheus
 - 📈 Visualization using Grafana
 - 🚨 Demonstration of OWASP Top 10 Vulnerabilities
+
+## 🛠️ Technology Stack
+
+| Category | Technologies |
+|----------|--------------|
+| Programming Language | Python 3.12 |
+| Framework | Flask |
+| Database | SQLite |
+| Containerization | Docker, Docker Compose |
+| Version Control | Git, GitHub |
+| CI/CD | GitHub Actions |
+| Infrastructure as Code | Terraform |
+| Cloud Platform | AWS EC2 |
+| Monitoring | Prometheus, Grafana |
+| Static Security Testing (SAST) | Bandit, Semgrep |
+| Secret Scanning | Gitleaks |
+| Dependency Scanning | pip-audit |
+| Container Security | Trivy |
+| Dynamic Security Testing (DAST) | OWASP ZAP |
+
+
+## 📂 Project Structure
+
+```text
+SecureApp-Pipeline/
+│
+├── .github/workflows/        # GitHub Actions CI/CD pipeline
+├── app/                      # Flask application source code
+├── docs/                     # Documentation
+├── monitoring/               # Prometheus & Grafana configuration
+├── security/                 # Security scan reports
+│   ├── bandit/
+│   ├── semgrep/
+│   ├── gitleaks/
+│   ├── trivy/
+│   └── zap/
+├── templates/                # HTML templates
+├── terraform/                # Infrastructure as Code
+├── Dockerfile
+├── docker-compose.yml
+├── requirements.txt
+└── README.md
+```
