@@ -213,7 +213,7 @@ GitHub Actions automatically connects to the EC2 instance via SSH and deploys th
 
 ## 🔒 DevSecOps Security Pipeline
 
-The SecureApp project follows a DevSecOps approach by integrating multiple security tools into the CI/CD pipeline. Every code change pushed to the GitHub repository automatically triggers security scans before deployment.
+The SecureApp project follows a DevSecOps approach by integrating multiple security tools into the CI/CD pipeline. Every code change pushed to the GitHub repository automatically triggers static security scans, dependency analysis, secret detection, container image scanning, and deployment. Dynamic Application Security Testing (DAST) is performed using OWASP ZAP against the deployed application.
 
 | Tool | Category | Purpose |
 |------|----------|---------|
