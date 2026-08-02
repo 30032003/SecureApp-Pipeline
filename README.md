@@ -209,3 +209,62 @@ terraform apply
 After successful deployment, Terraform outputs the EC2 Public IP and Public DNS.
 
 GitHub Actions automatically connects to the EC2 instance via SSH and deploys the latest application.
+
+
+## 🔒 DevSecOps Security Pipeline
+
+The SecureApp project follows a DevSecOps approach by integrating multiple security tools into the CI/CD pipeline. Every code change pushed to the GitHub repository automatically triggers security scans before deployment.
+
+| Tool | Category | Purpose |
+|------|----------|---------|
+| Bandit | SAST | Detects Python security vulnerabilities in source code |
+| Semgrep | SAST | Performs static code analysis using security rules |
+| Gitleaks | Secret Scanning | Detects hardcoded secrets, API keys, and credentials |
+| pip-audit | Software Composition Analysis (SCA) | Identifies vulnerable Python dependencies |
+| Trivy | Container Security | Scans Docker images for known vulnerabilities |
+| OWASP ZAP | DAST | Performs Dynamic Application Security Testing against the deployed application |
+
+
+### 🔄 CI/CD Security Workflow
+
+```text
+Developer
+      │
+      ▼
+Git Push
+      │
+      ▼
+GitHub Actions
+      │
+      ├── Checkout Repository
+      ├── Install Dependencies
+      ├── Bandit Scan
+      ├── Semgrep Scan
+      ├── Gitleaks Scan
+      ├── pip-audit Scan
+      ├── Docker Build
+      ├── Trivy Scan
+      └── Upload Security Reports
+              │
+              ▼
+      Deploy to AWS EC2
+              │
+              ▼
+     OWASP ZAP Dynamic Scan
+              │
+              ▼
+      Live SecureApp Application
+```
+
+### 📄 Security Reports
+
+The pipeline automatically generates reports for:
+
+- ✅ Bandit Report
+- ✅ Semgrep Report
+- ✅ Gitleaks Report
+- ✅ pip-audit Report
+- ✅ Trivy Report
+- ✅ OWASP ZAP Report
+
+These reports help identify security issues before and after deployment, enabling continuous security validation throughout the Software Development Life Cycle (SDLC).
