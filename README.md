@@ -22,3 +22,4 @@ SecureApp is a vulnerable Flask-based web application developed to demonstrate t
 The pipeline uses GitHub Actions to automate security scans, Docker to package the application, Terraform to provision AWS EC2 infrastructure, and Prometheus with Grafana for monitoring. Multiple security tools including Bandit, Semgrep, Gitleaks, pip-audit, Trivy, and OWASP ZAP are integrated to identify vulnerabilities throughout the Software Development Life Cycle (SDLC).
 
 This project demonstrates how security can be incorporated into every stage of application development, making it suitable for learning modern DevSecOps practices.
+
