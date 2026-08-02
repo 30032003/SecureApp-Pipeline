@@ -14,12 +14,15 @@ logs/
 *.tfstate.*
 .terraform.lock.hcl
 
+terraform/terraform.tfvars
+
 # Sensitive files
 terraform.tfvars
 *.pem
 
 # Reports
 security/**/*.json
+security/**/*.html
 
 # VS Code
 .vscode/
