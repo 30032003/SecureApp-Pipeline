@@ -4,7 +4,7 @@ __pycache__/
 .env
 .venv/
 uploads/*
-logs/*
+logs/
 .vscode/
 
 
@@ -17,3 +17,16 @@ logs/*
 # Sensitive files
 terraform.tfvars
 *.pem
+
+# Reports
+security/**/*.json
+
+# VS Code
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Sensitive files
+secureapp.db
