@@ -465,3 +465,88 @@ Grafana visualizes:
 - Monitoring Dashboards
 
 This enables continuous monitoring of the deployed application.
+
+
+## 📸 Project Screenshots
+
+### GitHub Repository
+
+![GitHub Repository](screenshots/github-repository.png)
+
+---
+
+### GitHub Actions CI/CD Pipeline
+
+![GitHub Actions](screenshots/github-actions.png)
+
+---
+
+### AWS EC2 Deployment
+
+![AWS EC2](screenshots/aws-ec2.png)
+
+---
+
+### SecureApp Login Page
+
+![Login](screenshots/login-page.png)
+
+---
+
+### User Registration
+
+![Register](screenshots/register-page.png)
+
+---
+
+### User Profile
+
+![Profile](screenshots/profile-page.png)
+
+---
+
+### File Upload
+
+![Upload](screenshots/upload-page.png)
+
+---
+
+### Terraform Infrastructure Deployment
+
+![Terraform](screenshots/terraform-apply.png)
+
+---
+
+### Prometheus Monitoring
+
+![Prometheus](screenshots/prometheus-targets.png)
+
+---
+
+### Grafana Dashboard
+
+![Grafana](screenshots/grafana-dashboard.png)
+
+---
+
+### Bandit Security Report
+
+![Bandit](screenshots/bandit-report.png)
+
+---
+
+### Semgrep Security Report
+
+![Semgrep](screenshots/semgrep-report.png)
+
+---
+
+### Trivy Container Scan
+
+![Trivy](screenshots/trivy-report.png)
+
+---
+
+### OWASP ZAP Dynamic Security Scan
+
+![OWASP ZAP](screenshots/zap-report.png)
