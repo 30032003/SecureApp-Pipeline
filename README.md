@@ -88,7 +88,7 @@ SecureApp-Pipeline/
 The following diagram illustrates the complete SecureApp DevSecOps workflow from code commit to automated deployment and security validation.
 
 <p align="center">
-  <img src="docs/architecture-diagram.svg" width="1000">
+  <img src="docs/High-Level%20Architecture.png" width="100%">
 </p>
 
 
