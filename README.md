@@ -550,3 +550,52 @@ This enables continuous monitoring of the deployed application.
 ### OWASP ZAP Dynamic Security Scan
 
 ![OWASP ZAP](screenshots/zap-report.png)
+
+
+## 🚀 Future Enhancements
+
+The following enhancements can further improve the project:
+
+- Deploy using Kubernetes (Amazon EKS)
+- Implement Helm Charts for application deployment
+- Integrate SonarQube for Code Quality Analysis
+- Configure Slack or Microsoft Teams notifications
+- Add HTTPS using Nginx Reverse Proxy and Let's Encrypt
+- Implement Auto Scaling and Load Balancer
+- Store Docker images in Amazon ECR
+- Deploy using Amazon ECS or Kubernetes
+- Integrate SIEM solutions for centralized log monitoring
+- Implement automated backup and disaster recovery strategy
+
+
+## 📚 Learning Outcomes
+
+This project provided practical experience with:
+
+- Secure Software Development Lifecycle (SSDLC)
+- DevSecOps principles and practices
+- Infrastructure as Code (Terraform)
+- Continuous Integration and Continuous Deployment (CI/CD)
+- Static Application Security Testing (SAST)
+- Dynamic Application Security Testing (DAST)
+- Software Composition Analysis (SCA)
+- Container Security
+- Cloud Deployment using AWS
+- Monitoring and Observability using Prometheus & Grafana
+
+## 👨‍💻 Author
+
+**Harshal Dahiwale**
+
+- GitHub: https://github.com/30032003
+- LinkedIn: https://www.linkedin.com/in/harshal-dahiwale-02610a22a/
+
+If you found this project useful, consider giving it a ⭐ on GitHub.
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+## 🙏 Acknowledgements
+
+This project was developed as part of the PG-DITISS (Post Graduate Diploma in IT Infrastructure, Systems & Security) program at CDAC ACTS, Pune. It demonstrates the implementation of modern DevSecOps practices using open-source technologies and cloud infrastructure.
