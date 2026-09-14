@@ -1,0 +1,46 @@
+Linux Boot Process:
+```````````````````
+The process of loading the OS(kernel) from hard disk to memory(RAM) is called boot process or booting process.
+
+Dual Boot:
+Running two OS on a machine(system) is called dual boot.
+Multi Boot:
+Running multiple OS's on a machine(system) is called multi-boot.
+Cold Boot:
+power on machine which is powered off.
+Warm Boot:
+restart machine.
+
+Boot Process 7 Steps:
+`````````````````````
+When we turn on the PC(laptop), BIOS initializes the H/W components and then POST checks the basic H/W components. after the GRUB bootloder loads the kernel from hard disk to memory. then kernel starts the CPU, Memory and H/W components.
+After that systemmd/init starts the all processes/services and then servicess start --> starts the required services, like SSH etc.
+and the login screen appears on the screen.
+
+--
+Ek-ek line mein:
+BIOS/UEFI → Hardware initialize karta hai.
+POST → Basic hardware check karta hai.
+GRUB → Linux kernel ko load/select karta hai.
+Kernel → CPU, memory aur hardware ko initialize karta hai.
+systemd → System ke services/processes start karta hai.
+Services → Network, SSH etc. required services start hoti hain.
+Login → User login kar sakta hai.
+
+--
+BIOS → POST → GRUB → Kernel → systemd → Services → Login
+
+--
+1. BIOS / UEFI
+      ↓
+2. POST
+      ↓
+3. Bootloader (GRUB)
+      ↓
+4. Kernel
+      ↓
+5. systemd / init
+      ↓
+6. Services start
+      ↓
+7. Login screen

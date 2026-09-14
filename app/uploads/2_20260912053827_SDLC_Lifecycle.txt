@@ -1,0 +1,72 @@
+Is poore process ko tech industry mein "Software Development Life Cycle (SDLC)" kehte hain!
+
+Aur jab koi client kisi bahar ki company ko apna project banane ke liye deta hai, toh is business model ko "IT Outsourcing ya Software Outsourcing" bola jata hai.
+
+--
+Bilkul! Is poori story aur process ko ekdam easy "Hinglish (Hindi + English)" mein aaram se samajhte hain, taaki ek student hone ke naate aapko ekdum crystal clear ho jaye ki "industry kaise kaam karti hai."
+
+---
+
+### Ek Simple Si Story: Aman aur Rahul ki Duniya
+````````````````````````````````````````````````
+
+Maan lo ek Rahul naam ka banda hai jiska ek local restaurant hai. Rahul chahta hai ki uske restaurant ka ek online food delivery app ho, bilkul Zomato ya Swiggy jaisa.
+
+Lekin Rahul ko coding nahi aati. Isliye woh ek "IT Company" (software banane wali company) ke paas jaata hai.
+
+Yahin se asli safar shuru hota hai: "Client (Rahul) aur Company (IT Agency) ka milna."
+
+---
+
+### Step-by-Step Process: App Kaise Banta Hai?
+``````````````````````````````````````````````
+
+1. Requirements Samajhna (Discovery & Planning)
+
+Company ka ek "Business Analyst (BA)" Rahul se milta hai. Rahul apni sari requirements batata hai—jaise user login karega, menu dekhega, cart mein food add karega aur online payment karega.
+
+Company wale sab note kar lete hain aur ek blueprint ("SRS document") banate hain.
+Wo Rahul ko bata dete hain ki "Bhai, is app ko banane mein 3 mahine lagenge aur 5 Lakh ka kharcha aayega."
+Rahul deal finalize kar deta hai.
+
+2. UI/UX Design (App dikhega kaisa?)
+
+Coding shuru hone se pehle design banta hai. "Designers" ek software (jaise Figma) par app ka pura look and feel banate hain—jaise button kahan hoga, color red hoga ya blue.
+
+Yeh design Rahul ko dikhaya jata hai. Rahul kehta hai, "Haan, yeh mast lag raha hai, isko final karo!"
+
+3. Tech Stack Choose Karna (Foundation)
+
+Company ke "Tech Leads" decide karte hain ki app kis technology par banega:
+
+Frontend (User ko kya dikhega): Flutter ya React Native.
+Backend (Data kahan sambhalega): Node.js ya Python.
+Database (Menu aur users ki details kahan save hongi): MongoDB.
+
+4. Coding / Development (Asli Jadoo)
+
+Ab aati hai developers ki baari. Isko do hisso mein baanta jata hai:
+
+Frontend Developers: Mobile screen par dikhne wali sari screens (Login, Menu, Cart) banate hain.
+Backend Developers: APIs banate hain jo database ke sath baat karti hain (jaise order place hote hi backend par data save ho jaye).
+
+5. Testing & Quality Assurance (Bugs Nikalna)
+
+Jab coding khatam ho jati hai, toh app "QA (Quality Assurance) Engineers" ke paas jaata hai. Inka kaam hota hai app mein galtiyan (bugs) nikalna.
+
+Yeh check karte hain ki app crash toh nahi ho raha, payment fail hone par kya error aa raha hai. Agar koi galti milti hai, toh developers ko wapas bhej kar theek karwaya jata hai.
+
+6. Deployment / Launch (Play Store par Live)
+
+Jab app bilkul bug-free ho jata hai aur Rahul (Client) bhi khush ho jata hai, tab app ko "Live" kar diya jata hai.
+
+Android ke liye "Google Play Store" par aur iPhone ke liye "Apple App Store" par app daal diya jata hai.
+Ab koi bhi user app download karke order kar sakta hai!
+
+#### 7. Maintenance (Support)
+
+App launch hone ke baad bhi kaam khatam nahi hota. Agar kabhi server down ho jaye ya naya feature jodna ho, toh company hamesha client ki help karti hai, jiske liye client alag se paise deta hai.
+
+---
+
+Bas! Yahi poora cycle hota hai ek "Client" ke idea ko ek successful "Application" banane ka.
