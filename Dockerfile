@@ -7,7 +7,7 @@ ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
 # Set working directory
-# 
+# we set the working directory inside the container to /app. This is where our application code and dependencies will be stored. All subsequent commands in the Dockerfile will be executed relative to this directory.
 WORKDIR /app
 
 # Install dependencies
